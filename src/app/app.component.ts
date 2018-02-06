@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {HttpModule, Http,Response} from '@angular/http'; 
+import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,8 @@ import { Component } from '@angular/core';
     }`]
 })
 export class AppComponent {
-
+  
+  constructor(public http: Http)
+   { }
+ 
 }
