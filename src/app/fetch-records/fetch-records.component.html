@@ -11,7 +11,8 @@
             <tr *ngFor="let document of data.documents">
                 <td>{{document.fields.title.stringValue}}</td>
                 <td>{{document.fields.description.stringValue}}</td>
-                <td><span class="glyphicon glyphicon-trash" ></span></td>
+                <td><button type="button" class="btn btn-primary glyphicon glyphicon-trash" data-deleting-text="&nbsp;Deleting..." (click)="deleteData(document.name)"></button>
+                </td>
             </tr>
         </tbody>
     </table>

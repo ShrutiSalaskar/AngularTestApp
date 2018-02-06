@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpModule, Http,Response} from '@angular/http'; 
 import 'rxjs/add/operator/map'
+import { Headers, RequestOptions } from '@angular/http';
+
 
 @Component({
   selector: 'app-fetch-records',
@@ -17,6 +19,7 @@ export class FetchRecordsComponent implements OnInit {
 
   
   get_url: string = 'https://firestore.googleapis.com/v1beta1/projects/angular-task-e7f39/databases/(default)/documents/tasks';
+  delete_url: string = 'https://firestore.googleapis.com/v1beta1/';
   
   data: any = {};
   constructor(public http: Http)
@@ -33,7 +36,12 @@ export class FetchRecordsComponent implements OnInit {
   }
 
   deleteData(name) {
-
+   
+    var url = this.delete_url + name;
+    console.log(url);
+    return this.http.delete(url).map((res: Response) => { 
+      
+  });
   }
 
   displayData() {
